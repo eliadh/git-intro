@@ -1,0 +1,119 @@
+What is git ?
+=============
+
+1. snapshots, not differences (with tree==directory and blob==file)
+
+every commit contains complete snapshot of the repository
+
+2. nearly every operation is local
+
+since all the repository is local almost everything happens at local
+
+3. integrity - fear not the sha(1)
+    https://en.wikipedia.org/wiki/SHA-1
+    every object in git structure get unique identifier
+    
+4. the 3(4) states: commited, modfied, staged (,untracked)
+    
+    
+5. basic work flow:
+	a. modify files in the working tree
+	b. selectively stage changes
+	c. commit
+
+6. communicate with git: 
+    command line (recommended), other..
+
+7. first time setup
+    
+
+8. config options:
+    precedence like in css files, each level overrides previous level:
+	system < profile (user) < specific repository
+	windows:
+        system = C:\ProgramData\Git\config - usually should not be modofied directly
+        profile = $HOME\.gitconfig
+        
+    linux:
+        system = /etc/gitconfig
+        global = ~/.gitconfig or ~/.config/git/config
+        
+    git config --list --show-origin    
+           
+    
+    2. identitiy, editor, ssh
+    identity
+        git config --global user.name "John Doe"
+        git config --global user.email johndoe@example.com
+        
+    editor
+        linux:
+            git config --global core.editor vim (also the default)
+        windows:
+            git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -nosession"
+            
+    ssh
+        for communicating with git repository on server
+
+
+Basics
+=============
+1. create/clone repository
+2. recording changes: add, commit
+3. check status
+4. ignore files
+5. moving files
+6. view history
+7. undoing things
+	a. git commit --amend
+	b. unstage staged file
+	c. unmodify modified file
+8. remotes
+	a. show the remotes, git remote -v
+	b. add remote repositories
+	c. fetch and pull from remotes
+	d. push to remotes, git push <remote> <branch>
+	e. inspecting remote
+	f. rename and remove remotes
+	g. tagging:
+		i. list tags
+		ii. create tag
+		iii. sharing tags
+		iv. sharing tags
+		v. delete tags
+		vi. checkout tags
+
+Git branching
+=============
+1. internal structure:
+	a. trees, blobs and commits
+2. branch is lightweight movable pointer
+3. master and HEAD
+4. create a new branch
+5. switching branches
+6. basic branching
+7. basic merging
+8. basic marge conflicts
+9. branch management
+10. branching workflows
+11. remote branches:
+	a. git fetch - update remote tracking branch - synchronize with given remote
+		i. when fetching new remote-tracking branch:
+			merge it into some branch (git merge origin/some-branch or 
+			create new local branch for it (git checkout -b some-branch origin/sone-branch
+	b. git push - sharing local changes with the world
+	c. tracking branches - git branch -vv
+	d. pulling
+		i. git pull =~ git fetch + git merge. the later is preffered
+	e. delete remote branch
+		i. git push origin --delete some-branch
+	f. rebase
+		i. simple rebase
+		ii. rebase --onto
+		iii. Do not rebase commits that exist outside your repository and people may have based work on them 
+	       	
+	
+ 												
+
+
+
